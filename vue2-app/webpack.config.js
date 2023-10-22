@@ -1,5 +1,5 @@
 const path = require('path');
-const { VueLoaderPlugin } = require('vue-loader');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HTMLPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
@@ -13,7 +13,7 @@ module.exports = {
     resolve: {
         alias: {
             '@': path.join(__dirname, 'src'),
-            'vue$': 'vue/dist/vue.esm-bundler.js',
+            'vue$': 'vue/dist/vue.common.js',
         },
         extensions: ['.js', '.jsx', '.vue', '.json'],
     },
@@ -61,7 +61,7 @@ module.exports = {
     devServer: {
         static: path.join(__dirname, "dist"),
         compress: true,
-        port: 8390,
+        port: 8490,
         headers: {
             "Access-Control-Allow-Origin": "*"
         }
